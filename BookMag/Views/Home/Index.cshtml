@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model  IEnumerable<BookMag.Models.Book>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="scrolList">
+    @Html.Partial("_Items")
+</div>
+
+<div id="loading" style="text-align: center">
+    <img src='@Url.Content("~/Content/loading_spinner.gif")'>
+</div>
+
+@Scripts.Render("~/bundles/infinitescroll")

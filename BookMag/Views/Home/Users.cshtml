@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BookMag.Models.BookReview>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Пользователи</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Review)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReportReason)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Review)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportReason)
+            </td>
+        </tr>
+    }
+
+</table>

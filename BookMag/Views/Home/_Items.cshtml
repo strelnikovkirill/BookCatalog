@@ -1,0 +1,15 @@
+﻿@model IEnumerable<BookMag.Models.Book>
+
+<div class="row">
+    @foreach (var b in Model)
+    {
+        <div class="jumbotron">
+            <h1> @b.Name </h1>
+            <p> @b.Genre </p>
+            <p> @b.Author </p>
+            <ul class="pager">
+                <li> @Html.ActionLink("Подробнее", "DetailsBook", new { id = b.Id }) </li>
+            </ul>
+        </div>
+    }
+</div>

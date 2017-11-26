@@ -1,0 +1,28 @@
+﻿@model BookMag.Models.Book
+
+@{
+    ViewBag.Title = "DetailsBook";
+}
+
+<h2>Подробней о книге</h2>
+<hr />
+<div class="jumbotron">
+    <dl class="dl-horizontal">
+        <dt> @Html.DisplayNameFor(model => model.Author) </dt>
+        <dd> @Html.DisplayFor(model => model.Author) </dd>
+        <dt> @Html.DisplayNameFor(model => model.Name) </dt>
+        <dd> @Html.DisplayFor(model => model.Name) </dd>
+        <dt> @Html.DisplayNameFor(model => model.Genre) </dt>
+        <dd> @Html.DisplayFor(model => model.Genre) </dd>
+    </dl>
+    <p>
+        <ul class="pager">
+            <li> @Html.ActionLink("Редактировать", "EditBook", new { id = Model.Id }) </li>
+            <li> @Html.ActionLink("Назад", "Index") </li>
+            <li> @Html.ActionLink("Добавить отзыв", "Create", "Review", new { bookId = Model.Id }, null) </li>
+        </ul>
+    </p>
+</div>
+<h2>Отзывы</h2>
+<hr />
+@Html.Partial("ReviewPartial", new BookMag.Models.BookContext().Reviews.Where(x => x.BookId == Model.Id).ToList())
